@@ -1,0 +1,60 @@
+/* Loginpage.css */
+
+/* Container styles */
+.form-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form styles */
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container label {
+    margin-bottom: 10px;
+  }
+  
+  .form-container input[type="text"],
+  .form-container input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Button styles */
+  .form-container input[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-container input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Sign up link styles */
+  .sign-up-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .sign-up-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .sign-up-link a:hover {
+    text-decoration: underline;
+  }
+  
