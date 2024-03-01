@@ -60,20 +60,27 @@ app.get('/authuser', authenticateToken, async (req, res) => {
         const id = req.user.id;
         const results = await conn.query('SELECT * from customer where id=?', id);
 
-        if (results.length == 0) {
+        if (results.length === 0) {
             return res.status(404).json({ message: 'User not found' });
         }
         const userData = results[0];
+
+        // ตรวจสอบว่า cus_id เป็น "admin" หรือไม่
+        const isAdmin = userData[0].cus_id === "admin";
+
         res.json({ 
-            status:'ok',
-            userData 
+            status: 'ok',
+            userData,
+             isAdmin
         });
     } catch (error) {
         console.log('error', error);
         res.status(500).json({ 
-            message: 'Internal server error' });
+            message: 'Internal server error' 
+        });
     }
 });
+
 
 
 
@@ -118,9 +125,11 @@ app.post('/login', async (req, res) => {
         const [results] = await conn.query('SELECT * from customer where cus_id=? AND cus_pwd=? ', [cus_id, cus_pwd])
         const userData = results[0]
         const accessToken = generateAccessToken(userData);
+     
         res.json({
             accessToken: accessToken,
-            userData: userData
+            userData: userData,
+        
         })
     } catch (error) {
         console.log('error', error)

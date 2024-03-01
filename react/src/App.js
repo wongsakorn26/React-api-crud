@@ -6,18 +6,14 @@ import Usercreate from "./Usercreate";
 import Userupdate from "./Userupdate";
 import Loginpage from "./Loginpage";
 import Profile from "./Profile";
+import Payment from "./Payment";
+import TradingViewWidget from "./TradingViewWidget";
+import Product from "./Product";
 
 function App() {
-  // Use useLocation hook to get the current route location
-  const location = useLocation();
-
-  // Check if the current route is '/data'
-  const isDataRoute = location.pathname === "/data";
 
   return (
     <>
-      {/* Conditionally render Navbar only on the '/data' route */}
-      {isDataRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<Loginpage />} />
         <Route path="/profile" element={<Profile />} />
@@ -25,6 +21,9 @@ function App() {
         <Route path="/create" element={<Usercreate />} />
         <Route path="/data" element={<Data />} />
         <Route path="/update/:id" element={<Userupdate />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/tradingViewWidget" element={<TradingViewWidget />} />
       </Routes>
     </>
   );

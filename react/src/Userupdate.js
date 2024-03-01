@@ -62,7 +62,7 @@ export default function Userupdate() {
             .then((result) => {
                 alert(result['message']);
 
-                window.location.href = '/';
+                window.location.href = '/data';
 
             })
             .catch((error) => console.error(error));
