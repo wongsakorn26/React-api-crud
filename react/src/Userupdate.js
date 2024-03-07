@@ -20,7 +20,7 @@ export default function Userupdate() {
             redirect: "follow"
         };
 
-        fetch("http://localhost:2000/users/" + id, requestOptions)
+        fetch(process.env.REACT_APP_API_URL +  "/users/" + id, requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

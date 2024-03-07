@@ -52,7 +52,7 @@ export default function ButtonAppBar() {
       redirect: "follow"
     };
 
-    fetch("http://localhost:2000/authuser", requestOptions)
+    fetch(process.env.REACT_APP_API_URL + "/authuser", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.status === 'ok') {

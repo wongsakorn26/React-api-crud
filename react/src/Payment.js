@@ -25,6 +25,8 @@ const Profile = () => {
   const MySwal = withReactContent(Swal);
   const [isLoaded, setIsLoaded] = useState(true);
   const [user, setUser] = useState({});
+  // const apiUrl = process.env.REACT_APP_API_URL;
+  // console.log(`API URL: ${apiUrl}`);
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -41,7 +43,7 @@ const Profile = () => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:2000/authuser", requestOptions)
+    fetch(process.env.REACT_APP_API_URL + "/authuser", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.status === 'ok') {

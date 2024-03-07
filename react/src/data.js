@@ -32,7 +32,7 @@ const User = () => {
     }, []);
 
     const UserGet = () => {
-        fetch("http://localhost:2000/users")
+        fetch(process.env.REACT_APP_API_URL + "/users")
             .then(res => res.json())
             .then((result) => {
                 setItems(result);
@@ -55,7 +55,7 @@ const User = () => {
             redirect: "follow"
         };
 
-        fetch("http://localhost:2000/delete", requestOptions)
+        fetch(process.env.REACT_APP_API_URL +  "/delete", requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 alert(result['message']);

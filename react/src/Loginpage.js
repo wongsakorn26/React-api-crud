@@ -8,7 +8,8 @@ const Loginpage = () => {
   const navigate = useNavigate();
   const MySwal = withReactContent(Swal);
   const [inputs, setInputs] = useState({});
-  
+    // const apiUrl = process.env.REACT_APP_API_URL;
+  // console.log(`API URL: ${apiUrl}`);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setInputs(values => ({ ...values, [name]: value }));
@@ -33,7 +34,7 @@ const Loginpage = () => {
     };
     
     try {
-      const response = await fetch("http://localhost:2000/login", requestOptions);
+      const response = await fetch(process.env.REACT_APP_API_URL + "/login", requestOptions);
       const result = await response.json();
       if (result.userData) {
         MySwal.fire({

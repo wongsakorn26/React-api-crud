@@ -26,7 +26,7 @@ export default function Usercreate() {
             redirect: "follow"
         };
 
-        fetch("http://localhost:2000/add", requestOptions)
+        fetch(process.env.REACT_APP_API_URL + "/add", requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 alert(result['message'])
